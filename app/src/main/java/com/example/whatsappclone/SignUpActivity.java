@@ -66,7 +66,7 @@ setContentView(binding.getRoot());
             }
         });
 
-        binding.ToSignIN.setOnClickListener(new View.OnClickListener() {
+        binding.ToSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);

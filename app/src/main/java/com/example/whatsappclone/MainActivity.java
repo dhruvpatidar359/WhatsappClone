@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.whatsappclone.Adapters.adapterfrag;
 import com.example.whatsappclone.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,6 +26,8 @@ FirebaseAuth mAuth;
         mAuth =FirebaseAuth.getInstance();
         setContentView(binding.getRoot());
 
+binding.viewpager.setAdapter(new adapterfrag(getSupportFragmentManager()));
+binding.tablayout.setupWithViewPager(binding.viewpager);
 
         }
 
@@ -44,6 +47,7 @@ FirebaseAuth mAuth;
             break;
         case R.id.logout:
             mAuth.signOut();
+
             Intent intent = new Intent(MainActivity.this,SignInActivity.class);
             startActivity(intent);
             break;

@@ -51,7 +51,7 @@
             android:padding="9dp" />
 
         <TextView
-            android:id="@+id/ToSignUP"
+            android:id="@+id/ToSignIN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

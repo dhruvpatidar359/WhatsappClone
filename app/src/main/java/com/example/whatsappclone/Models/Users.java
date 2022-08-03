@@ -1,5 +1,7 @@
 package com.example.whatsappclone.Models;
 
+import android.net.Uri;
+
 public class Users {
     String profilePic ,userName,mail,password,userID,lastMessage;
 
