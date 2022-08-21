@@ -3,7 +3,17 @@ package com.example.whatsappclone.Models;
 import android.net.Uri;
 
 public class Users {
-    String profilePic ,userName,mail,password,userID,lastMessage;
+    String profilePic;
+    String userName;
+    String mail;
+    String password;
+
+    public String getUserID() {
+        return userID;
+    }
+
+    String userID;
+    String lastMessage;
 
     public Users(String profilePic, String userName, String mail, String password, String userID, String lastMessage) {
         this.profilePic = profilePic;
@@ -54,9 +64,6 @@ public class Users {
         this.password = password;
     }
 
-    public String getUserID(String key) {
-        return userID;
-    }
 
     public void setUserID(String userID) {
         this.userID = userID;

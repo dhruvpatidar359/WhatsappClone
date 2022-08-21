@@ -51,15 +51,11 @@ public class ChatsFragmetns extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
-                for (DataSnapshot datasnapshot: snapshot.getChildren()
-                     ) {
+                for (DataSnapshot datasnapshot: snapshot.getChildren())
+                {
                     Users users = datasnapshot.getValue(Users.class);
-
-                    users.getUserID(datasnapshot.getKey());
+                    users.setUserID(datasnapshot.getKey());
                     list.add(users);
-
-
-                    
                 }
                 usersadapters.notifyDataSetChanged();
 
