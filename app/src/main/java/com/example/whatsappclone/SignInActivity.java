@@ -55,6 +55,17 @@ GoogleSignInClient mGoogleSignInClient;
         binding.SignIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(binding.etMail.getText().toString().isEmpty()){
+                    binding.etMail.setError("Enter your Name");
+                    return;
+                }
+                if(binding.etPassword.getText().toString().isEmpty()){
+                    binding.etPassword.setError("Enter your Password");
+                    return;
+                }
+
+
                 progressDialog.show();
                 mAuth.signInWithEmailAndPassword(binding.etMail.getText().toString(),binding.etPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

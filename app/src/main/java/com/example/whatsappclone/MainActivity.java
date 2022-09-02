@@ -43,7 +43,8 @@ binding.tablayout.setupWithViewPager(binding.viewpager);
 
     switch(item.getItemId()){
         case R.id.settings:
-            Toast.makeText(this, "You have clicked on settings", Toast.LENGTH_SHORT).show();
+           Intent intent2 = new Intent(MainActivity.this,ActivitySettings.class);
+           startActivity(intent2);
             break;
         case R.id.logout:
             mAuth.signOut();

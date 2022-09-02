@@ -54,7 +54,7 @@ FirebaseAuth auth;
 
         final ArrayList<MessageModels> messageModels  = new ArrayList<>();
 
-        final MessageAdap messageAdap = new MessageAdap(messageModels , this);
+        final MessageAdap messageAdap = new MessageAdap(messageModels , this,recieverId);
         binding.insideChatsRecycler.setAdapter(messageAdap);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -74,6 +74,7 @@ database.getReference().child("chats")
                                 messageModels.clear();
                               for(DataSnapshot snapshot1 : snapshot.getChildren()){
                                   MessageModels models = snapshot1.getValue(MessageModels.class);
+                                  models.setMessageID(snapshot1.getKey());
                                     messageModels.add(models);
                               }
 
@@ -89,7 +90,12 @@ database.getReference().child("chats")
         binding.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    String message  = binding.Message.getText().toString();
+                if(binding.Message.getText().toString().isEmpty()){
+                    binding.Message.setError("Enter some message");
+                    return;
+                }
+
+                String message  = binding.Message.getText().toString();
                     final MessageModels model = new MessageModels(senderId,message);
                     model.setTimestamp(new Date().getTime());
                     binding.Message.setText("");

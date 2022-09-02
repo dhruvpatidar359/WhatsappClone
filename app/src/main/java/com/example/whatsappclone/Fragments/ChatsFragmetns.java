@@ -16,6 +16,7 @@ import com.example.whatsappclone.Models.Users;
 import com.example.whatsappclone.R;
 
 import com.example.whatsappclone.databinding.FragmentChatsFragmetnsBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -55,6 +56,7 @@ public class ChatsFragmetns extends Fragment {
                 {
                     Users users = datasnapshot.getValue(Users.class);
                     users.setUserID(datasnapshot.getKey());
+                    if(!users.getUserID().equals(FirebaseAuth.getInstance().getUid()))
                     list.add(users);
                 }
                 usersadapters.notifyDataSetChanged();

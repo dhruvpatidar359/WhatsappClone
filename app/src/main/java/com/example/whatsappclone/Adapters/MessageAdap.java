@@ -1,6 +1,8 @@
 package com.example.whatsappclone.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import com.example.whatsappclone.InsideChatActivity;
 import com.example.whatsappclone.Models.MessageModels;
 import com.example.whatsappclone.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -25,7 +28,15 @@ public class MessageAdap extends RecyclerView.Adapter {
     }
 
     ArrayList<MessageModels> messageAdaps;
+
+    public MessageAdap(ArrayList<MessageModels> messageAdaps, Context context, String recId) {
+        this.messageAdaps = messageAdaps;
+        this.context = context;
+        this.recId = recId;
+    }
+
     Context context;
+    String recId;
 
     public MessageAdap(ArrayList<MessageModels> messageAdaps, Context context) {
         this.messageAdaps = messageAdaps;
@@ -70,6 +81,31 @@ public class MessageAdap extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
 MessageModels messageModels =messageAdaps.get(position);
+
+holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+    @Override
+    public boolean onLongClick(View view) {
+        new AlertDialog.Builder(context)
+                .setTitle("Delete")
+                .setMessage("Do you want to delete the message")
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase firebaseDatabase  = FirebaseDatabase.getInstance();
+                        String sender = FirebaseAuth.getInstance().getUid() + recId;
+                        firebaseDatabase.getReference().child("chats").child(sender)
+                                .child(messageModels.getMessageID()).setValue(null);
+                    }
+                }).setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
+
+        return false;
+    }
+});
 
 if(holder.getClass() == SenderViewHolder.class)
     ((SenderViewHolder) holder).senderMsg.setText(messageModels.getMessage());

@@ -1,7 +1,19 @@
 package com.example.whatsappclone.Models;
 
 public class MessageModels {
-    String uid,message;
+    String uid;
+    String message;
+    String messageID;
+
+    public String getMessageID() {
+        return messageID;
+    }
+
+    public void setMessageID(String messageID) {
+        this.messageID = messageID;
+    }
+
+
 
     public MessageModels(String uid, String message) {
         this.uid = uid;

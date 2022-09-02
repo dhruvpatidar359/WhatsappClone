@@ -1,12 +1,23 @@
 package com.example.whatsappclone.Models;
 
-import android.net.Uri;
+
 
 public class Users {
     String profilePic;
     String userName;
     String mail;
     String password;
+    String about;
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+
 
     public String getUserID() {
         return userID;
@@ -15,11 +26,12 @@ public class Users {
     String userID;
     String lastMessage;
 
-    public Users(String profilePic, String userName, String mail, String password, String userID, String lastMessage) {
+    public Users(String profilePic, String userName, String mail, String password, String about, String userID, String lastMessage) {
         this.profilePic = profilePic;
         this.userName = userName;
         this.mail = mail;
         this.password = password;
+        this.about = about;
         this.userID = userID;
         this.lastMessage = lastMessage;
     }
@@ -29,7 +41,6 @@ public class Users {
         this.mail = mail;
         this.password = password;
     }
-
     public Users(){}
 
     public String getProfilePic() {
