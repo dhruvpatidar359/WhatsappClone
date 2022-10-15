@@ -26,6 +26,7 @@
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/drawable/linear_bg.xml" value="0.145" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/drawable/send_background.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/activity_flash_screen.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/activity_group_chat.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/activity_inside_chat.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/activity_isnide_chat.xml" value="0.22" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
@@ -38,9 +39,11 @@
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/fragment_chats_fragmetns.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/fragment_status_framents.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/sample_reciever.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/sample_sender.xml" value="0.22" />
+        <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/layout/sample_sender.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/menu/chats_menu.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/menu/menu.xml" value="0.13999999999999999" />
+        <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.145" />
+        <entry key="..\:/Users/dhruv/Desktop/WhatsappClone/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.145" />
       </map>
     </option>
   </component>

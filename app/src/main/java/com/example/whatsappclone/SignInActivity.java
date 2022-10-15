@@ -79,6 +79,7 @@ GoogleSignInClient mGoogleSignInClient;
 
                         else{
                             Toast.makeText(SignInActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog.cancel();
                         }
 
                     }

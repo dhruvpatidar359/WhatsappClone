@@ -17,7 +17,11 @@ import com.example.whatsappclone.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class MessageAdap extends RecyclerView.Adapter {
 
@@ -107,14 +111,25 @@ holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
     }
 });
 
-if(holder.getClass() == SenderViewHolder.class)
+if(holder.getClass() == SenderViewHolder.class){
     ((SenderViewHolder) holder).senderMsg.setText(messageModels.getMessage());
+        ((SenderViewHolder) holder).senderTime.setText(formatDate(messageModels.getTimestamp()));}
 
 else{
     ((ReceiverViewHolder)holder).receiverMsg.setText(messageModels.getMessage());
+    ((ReceiverViewHolder) holder).receiverTime.setText(formatDate(messageModels.getTimestamp()));
 }
 
 
+    }
+    private String formatDate(long milliseconds) /* This is your topStory.getTime()*1000 */ {
+        DateFormat sdf = new SimpleDateFormat("HH:mm");
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliseconds);
+        TimeZone tz = TimeZone.getDefault();
+        sdf.setTimeZone(tz);
+        return sdf.format(calendar.getTime());
     }
 
     @Override
